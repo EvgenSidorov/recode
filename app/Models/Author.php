@@ -15,24 +15,24 @@ class Author extends Model
         'second_name',
     ];
 
-    public function books(){
+    public function books()
+    {
         return $this->belongsToMany(Book::class, 'book_authors');
     }
 
     public static function saveAuthor(Author $author = null, $authorData)
     {
-        if(!$author){
+        if (!$author) {
             $author = new self();
         }
 
-//        dd($bookData);
         $author->fill($authorData);
         $author->save();
-//        $author->authors()->sync($authorData['books']);
         return $author;
     }
 
-    public function getFullNameAttribute(){
+    public function getFullNameAttribute()
+    {
         return implode(' ', [$this->last_name, $this->first_name, $this->second_name]);
     }
 }

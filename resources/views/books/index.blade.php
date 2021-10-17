@@ -6,16 +6,17 @@
 
     <div class="container">
         <div class="offset-2 col-md-2 m-5">
-            <form action="{{ route('app.home') }}"  name="filter" method="GET">
+            <form action="{{ route('app.home') }}" name="filter" method="GET">
                 <label><b>Выбрать автора:</b></label>
-                    <select name="author" class="form-control" >
-                        <option value=""></option>
-                        @foreach($authors as $id => $author)
-                            <option {{ request()->get('author') == $id ? 'selected' : '' }} value="{{ $id }}">{{ $author }} </option>
-                        @endforeach
-                    </select>
-                    <button type="submit"  class="btn btn-outline-primary mt-2">Применить
-                    </button>
+                <select name="author" class="form-control">
+                    <option value=""></option>
+                    @foreach($authors as $id => $author)
+                        <option
+                            {{ request()->get('author') == $id ? 'selected' : '' }} value="{{ $id }}">{{ $author }} </option>
+                    @endforeach
+                </select>
+                <button type="submit" class="btn btn-outline-primary mt-2">Применить
+                </button>
             </form>
         </div>
         <table class="table table-striped table-hover">

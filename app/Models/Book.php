@@ -14,13 +14,14 @@ class Book extends Model
         'year',
     ];
 
-    public function authors(){
+    public function authors()
+    {
         return $this->belongsToMany(Author::class, 'book_authors');
     }
 
     public static function saveBook(Book $book = null, $bookData)
     {
-        if(!$book){
+        if (!$book) {
             $book = new self();
         }
 
@@ -30,8 +31,9 @@ class Book extends Model
         return $book;
     }
 
-    public  function scopeByAuthor($query, $id){
-        return $query->whereHas('authors', function ($query) use($id){
+    public function scopeByAuthor($query, $id)
+    {
+        return $query->whereHas('authors', function ($query) use ($id) {
             return $query->where('id', $id);
         });
     }
