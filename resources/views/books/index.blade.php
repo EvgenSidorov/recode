@@ -5,8 +5,8 @@
     </div>
 
     <div class="container">
-        <div class="offset-2 col-md-2 m-5">
-            <form action="{{ route('app.home') }}" name="filter" method="GET">
+        <div class="offset-2 col-md-3 m-5">
+            <form action="{{ route('app.books') }}" name="filter" method="GET">
                 <label><b>Выбрать автора:</b></label>
                 <select name="author" class="form-control">
                     <option value=""></option>

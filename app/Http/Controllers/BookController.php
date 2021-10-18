@@ -11,6 +11,7 @@ class BookController extends Controller
     public function index()
     {
         $authorId = request()->get('author');
+
         $books = Book::with('authors')
             ->when($authorId, function ($query) use ($authorId) {
                 return $query->byAuthor($authorId);
